@@ -15,7 +15,7 @@ var db;
 
 // Connect to the database before starting the application server. 
 // mongodb.MongoClient.connect(process.env.MONGODB_URI, function (err, database) {
-mongodb.MongoClient.connect('mongodb://locationUser1:L0g5yMgi3fbaMM4T@cluster0-4ldr1.azure.mongodb.net/testdb?retryWrites=true&w=majority&', function (err, database) {
+mongodb.MongoClient.connect('mongodb+srv://locationUser1:L0g5yMgi3fbaMM4T@cluster0-4ldr1.azure.mongodb.net/testdb?retryWrites=true&w=majority&', function (err, database) {
   if (err) {
     console.log(err);
     process.exit(1);
