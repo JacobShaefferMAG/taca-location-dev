@@ -23,7 +23,7 @@ mongodb.MongoClient.connect('mongodb+srv://locationUser1:L0g5yMgi3fbaMM4T@cluste
 
   // Save database object from the callback for reuse.
   db = database;
-  console.log("Database connection ready");
+  console.log("Database connection ready: ", database);
 
   // Initialize the app.
   var server = app.listen(process.env.PORT || 8080, function () {
