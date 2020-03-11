@@ -62,6 +62,7 @@ app.post("/contacts", function(req, res) {
 
 
   console.log('req.body: ', newContact);
+  console.log('req: ', req);
 
 //   if (!(req.body.firstName || req.body.lastName)) {
 //     handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
