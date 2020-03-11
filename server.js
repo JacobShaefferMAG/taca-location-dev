@@ -7,8 +7,8 @@ var ObjectID = mongodb.ObjectID;
 var CONTACTS_COLLECTION = "contacts";
 
 var app = express();
-app.use(express.static(__dirname + "/public"));
 app.use(bodyParser.json());
+app.use(express.static(__dirname + "/public"));
 
 // Create a database variable outside of the database connection callback to reuse the connection pool in your app.
 var db;
@@ -56,25 +56,23 @@ app.get("/contacts", function(req, res) {
 });
 
 app.post("/contacts", function(req, res) {
-  console.log('req.body: ', req.body);
-  var newContact = req.body;
-  newContact.createDate = new Date();
-  newContact.humanReadable = getDate(newContact.timestamp);
+	let locations = req.body;
+	console.log('new Locations: ', locations);
+	for(newContact in locations){
+		newContact.createDate = new Date();
+		newContact.humanReadable = getDate(newContact.timestamp);
 
+		console.log('newContact: ', newContact);
 
-  console.log('newContact: ', newContact);
+		db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
+			if (err) {
+			handleError(res, err.message, "Failed to create new contact.");
+			} else {
+			res.status(201).json(doc.ops[0]);
+			}
+		});
 
-//   if (!(req.body.firstName || req.body.lastName)) {
-//     handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
-//   }
-
-  db.collection(CONTACTS_COLLECTION).insertOne(newContact, function(err, doc) {
-    if (err) {
-      handleError(res, err.message, "Failed to create new contact.");
-    } else {
-      res.status(201).json(doc.ops[0]);
-    }
-  });
+	}
 });
 		
 getDate = function(timestamp){
