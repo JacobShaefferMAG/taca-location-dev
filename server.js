@@ -58,7 +58,8 @@ app.get("/contacts", function(req, res) {
 app.post("/contacts", function(req, res) {
 	let locations = req.body;
 	console.log('new Locations: ', locations);
-	for(newContact in locations){
+	for(let i=0; i<locations.length; i++){
+		let newContact = locations[i];
 		newContact.createDate = new Date();
 		newContact.humanReadable = getDate(newContact.timestamp);
 
