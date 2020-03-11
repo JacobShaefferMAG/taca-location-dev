@@ -17,7 +17,7 @@
     <tbody>
       <tr ng-repeat="contact in contacts | orderBy:'lastName'" style="cursor:pointer">
         <td>
-          <a ng-href="#/contact/{{contact._id}}">{{ contact.humanTime }}</a>
+          <a ng-href="#/contact/{{contact._id}}">{{ contact.humanReadable }}</a>
           <a ng-href="#/contact/{{contact._id}}">{{ contact.timestamp }}</a>
         </td>
       </tr>
