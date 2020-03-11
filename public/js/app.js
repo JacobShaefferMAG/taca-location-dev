@@ -112,5 +112,16 @@ angular.module("contactsApp", ['ngRoute'])
 
         $scope.deleteContact = function(contactId) {
             Contacts.deleteContact(contactId);
-        }
+		}
+		
+		$scope.getDate = function(timestamp){
+			let date = new Date(timestamp * 1000);
+			let hours = date.getHours();
+			let minutes = "0" + date.getMinutes();
+			let seconds = "0" + date.getSeconds();
+
+			let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+
+			return formattedTime;
+		}
     });
