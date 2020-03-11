@@ -56,13 +56,13 @@ app.get("/contacts", function(req, res) {
 });
 
 app.post("/contacts", function(req, res) {
+  console.log('req.body: ', req.body);
   var newContact = req.body;
   newContact.createDate = new Date();
   newContact.humanReadable = getDate(newContact.timestamp);
 
 
-  console.log('req.body: ', newContact);
-  console.log('req: ', req);
+  console.log('newContact: ', newContact);
 
 //   if (!(req.body.firstName || req.body.lastName)) {
 //     handleError(res, "Invalid user input", "Must provide a first or last name.", 400);
