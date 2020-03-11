@@ -89,7 +89,8 @@ angular.module("contactsApp", ['ngRoute'])
     })
     .controller("EditContactController", function($scope, $routeParams, Contacts) {
         Contacts.getContact($routeParams.contactId).then(function(doc) {
-            $scope.contact = doc.data;
+			$scope.contact = doc.data;
+			getDate();
         }, function(response) {
             alert(response);
         });
@@ -122,6 +123,6 @@ angular.module("contactsApp", ['ngRoute'])
 
 			let formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
 
-			return formattedTime;
+			$scope.formattedTime = formattedTime;
 		}
     });
