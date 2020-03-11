@@ -74,8 +74,9 @@ app.post("/contacts", function(req, res) {
 });
 		
 getDate = function(timestamp){
-	let date = (new Date(timestamp * 1000)).toLocaleString();
-	return date;
+	let date = new Date(timestamp * 1000)
+	let formattedTime = date.toLocaleString();
+	return formattedTime;
 }
 
 /*  "/contacts/:id"
