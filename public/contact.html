@@ -1,8 +1,5 @@
 <div class = "row">
   <div class="col-md-6">
-    <h2>
-      {{ contact.firstName }} {{ contact.lastName }}
-    </h2>
   </div>
   <div class="col-md-3">
   </div>
@@ -14,11 +11,16 @@
 </div>
 <div ng-hide="editMode" class="container">
   <div>
-    <p ng-if="contact.email">email: <a ng-href="mailto:{{ contact.email }}" target="_blank">{{ contact.email }}</a></p>
-    <p ng-if="contact.phone.mobile">phone (m): {{ contact.phone.mobile }} </p>
-    <p ng-if="contact.phone.work">phone (w): {{ contact.phone.work }} </p>
-    <p ng-if="contact.address"> address: {{ contact.address }} </p>
-    <p ng-if="contact.twitter"> twitter: <a ng-href="https://twitter.com/{{ contact.twitter }}" target="_blank">@{{ contact.twitter }}</a></p>
+		<h1>coords</h1>
+		<div style="margin-left: 15px">
+			<p ng-if="contact.coords.latitude">{{ contact.coords.latitude }}</a></p>
+			<p ng-if="contact.coords.longitude">{{ contact.coords.longitude }} </p>
+			<p ng-if="contact.coords.altitude">{{ contact.coords.altitude }} </p>
+			<p ng-if="contact.coords.accuracy">{{ contact.coords.accuracy }}</p>
+			<p ng-if="contact.coords.altitudeAccuracy">{{ contact.coords.altitudeAccuracy }}</p>
+		</div>
+		<p ng-if="contact.timestamp">{{ contact.timestamp }}</p>
+		<p ng-if="contact.humanReadable">{{ contact.humanReadable }}</p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Edit</button>
       <a style="margin-top:20px" class="btn btn-default" href="#/">Back</a>
