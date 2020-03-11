@@ -13,13 +13,13 @@
   <div>
 		<h1>coords</h1>
 		<div style="margin-left: 15px">
-			<p ng-if="contact.coords.latitude">{{ contact.coords.latitude }}</a></p>
-			<p ng-if="contact.coords.longitude">{{ contact.coords.longitude }} </p>
-			<p ng-if="contact.coords.altitude">{{ contact.coords.altitude }} </p>
-			<p ng-if="contact.coords.accuracy">{{ contact.coords.accuracy }}</p>
-			<p ng-if="contact.coords.altitudeAccuracy">{{ contact.coords.altitudeAccuracy }}</p>
+			<p ng-if="contact.coords.latitude">latitude: {{ contact.coords.latitude }}</a></p>
+			<p ng-if="contact.coords.longitude">longitude: {{ contact.coords.longitude }} </p>
+			<p ng-if="contact.coords.altitude">altitude: {{ contact.coords.altitude }} </p>
+			<p ng-if="contact.coords.accuracy">accuracy: {{ contact.coords.accuracy }}</p>
+			<p ng-if="contact.coords.altitudeAccuracy">altitudeAccuracy: {{ contact.coords.altitudeAccuracy }}</p>
 		</div>
-		<p ng-if="contact.timestamp">{{ contact.timestamp }}</p>
+		<p ng-if="contact.timestamp">timestamp: {{ contact.timestamp }}</p>
 		<p ng-if="contact.humanReadable">{{ contact.humanReadable }}</p>
     <p>
       <button style="margin-top:20px" class="btn btn-default" ng-click="toggleEdit()">Edit</button>
