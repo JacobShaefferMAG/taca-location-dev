@@ -74,7 +74,10 @@ app.post("/contacts", function(req, res) {
 });
 		
 getDate = function(timestamp){
-	let date = new Date(timestamp * 1000)
+	if(timestamp < 1000000000000){
+		timestamp = timestamp * 1000;
+	}
+	let date = new Date(timestamp)
 	let formattedTime = date.toLocaleString();
 	return formattedTime;
 }
